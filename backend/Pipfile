@@ -1,0 +1,38 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+graphene-django-pagination = {file = "https://github.com/instruct-br/graphene-django-pagination/archive/master.zip"}
+aniso8601 = "==7.0.0"
+asgiref = "==3.4.1"
+django-cors-headers = "==3.8.0"
+django-filter = "==2.4.0"
+django-graphql-jwt = "==0.3.4"
+graphene = "==2.1.9"
+graphene-django = "==2.15.0"
+graphene-file-upload = "==1.3.0"
+graphql-core = "==2.3.2"
+graphql-relay = "==2.0.1"
+promise = "==2.3"
+pytz = "==2021.1"
+singledispatch = "==3.7.0"
+six = "==1.16.0"
+sqlparse = "==0.4.2"
+text-unidecode = "==1.3"
+yapf = "==0.31.0"
+Django = "==3.2.7"
+Pillow = "==8.3.2"
+PyJWT = "==2.1.0"
+Rx = "==1.6.1"
+gunicorn = "*"
+psycopg2 = "*"
+python-dotenv = "*"
+
+[dev-packages]
+yapf = "*"
+autopep8 = "*"
+
+[requires]
+python_version = "3.8"

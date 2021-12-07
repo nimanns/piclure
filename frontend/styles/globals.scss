@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400&family=Urbanist:wght@300&display=swap");
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+
+// $darker: #470063;
+// $dark: #b30089;
+// $light: #f62dae;
+// $lighter: #fd96a9;
+// $lightest: #c0c999;
+body[data-light] {
+  --darker: #1e2749;
+  --dark: #273469;
+  --lightest: #fafaff;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Urbanist", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: var(--lightest);
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Urbanist", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+p {
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 1s ease-out;
+  font-family: "Urbanist", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  cursor: pointer;
+  &:hover {
+    text-shadow: 0 0 10px rgb(189, 189, 189);
+    text-decoration: underline;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.title {
+  padding: 0.5em;
+  font-size: 40px;
+  flex-shrink: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+div.overlay {
+  backdrop-filter: blur(5px);
+  background-color: rgba(121, 121, 121, 0.658);
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: -10;
+  transition: all 0.4s ease;
+  // pointer-events: none;
+}
+
+div.overlay.overlay-show {
+  opacity: 1;
+  z-index: 999;
+  // pointer-events: auto;
+}
+
+div.input-field > input.border-red {
+  background-color: rgb(253, 153, 153);
+  box-shadow: 0 0 10px rgb(221, 92, 92);
+}
+
+div.input-field > input.border-green {
+  background-color: rgb(153, 253, 158);
+  box-shadow: 0 0 10px rgb(92, 221, 141);
+}
+
+div.input-field {
+  width: 100%;
+  position: relative;
+  margin: 0.5em auto;
+}
+label {
+  all: unset;
+  width: 100%;
+  line-height: 2.4em;
+  pointer-events: none;
+  position: relative;
+  transition: all 0.4s ease;
+  padding-left: 0.6em;
+  color: #0000007b;
+}
+div.input-label {
+  width: 100%;
+  display: flex;
+  div.indicator {
+    display: flex;
+    margin-right: 0.4em;
+    margin-left: auto;
+    width: 20px;
+    position: relative;
+  }
+}
+.error {
+  background: red;
+  border-left: 4px solid black;
+}
+
+.footer {
+  width: 100%;
+  // background-color: var(--darker);
+  background-color: #30343f;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  border-top: 10px solid black;
+  .links-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 1em;
+    position: relative;
+  }
+  div.links {
+    color: white;
+    margin: 2em auto;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    // border-left: 1px solid rgb(145, 145, 145);
+    &::before {
+      content: " ";
+      height: 100%;
+      width: 1px;
+      background-image: linear-gradient(
+        to bottom,
+        #1747ad,
+        #2d968d,
+        #c52b92,
+        rgb(221, 31, 126)
+      );
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+  p,
+  h4 {
+    color: white;
+    font-weight: normal;
+    grid-column: 1/-1;
+    text-align: center;
+    padding: 2em;
+    user-select: none;
+    position: relative;
+    &::before {
+      content: " ";
+      height: 1px;
+      width: 100%;
+      background-image: linear-gradient(
+        to right,
+        #1747ad,
+        #2d968d,
+        #c52b92,
+        rgb(221, 31, 126)
+      );
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+}
+
+.pumped-heart {
+  animation: pumpedheart 0.3s cubic-bezier(0.79, 0.77, 0.82, 0.46) forwards;
+}
+
+@keyframes pumpedheart {
+  1% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.color {
+  transition:all .4s ease;
+  stroke-dasharray: 100;
+}
+
+@keyframes col {
+  0% {
+    fill: none;
+  }
+  72% {
+    fill: url(#linearGradient1684);
+  }
+  100% {
+    fill: none;
+  }
+}
